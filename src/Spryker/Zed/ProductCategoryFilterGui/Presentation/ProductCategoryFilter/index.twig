@@ -4,10 +4,10 @@
 {% block content %}
     <div class="ibox float-e-margins">
         {% block widget_content %}
-            <div class="ibox-title">
+            <div class="ibox-title clearfix">
                 <h5>{{ 'Category Filters for' | trans }} {{ category.name }}</h5>
                 {% if productCategoryFilters.idProductCategoryFilter %}
-                    <a href="{{ url('/product-category-filter-gui/product-category-filter/reset', {'id-category-node' : category.idCategory}) }}" id="reset-filters" class="btn btn-sm btn-danger pull-right">{{ 'Reset to global settings' | trans }}</a>
+                    <a href="{{ url('/product-category-filter-gui/product-category-filter/reset', {'id-category-node' : category.idCategory}) }}" id="reset-filters" class="btn btn-sm btn-danger pull-right float-end">{{ 'Reset to global settings' | trans }}</a>
                 {% endif %}
                 <input type="hidden" id="idCategory" value="{{ category.idCategory }}"/>
             </div>
@@ -15,7 +15,7 @@
                 {% if not productCategoryFilters.idProductCategoryFilter %}
                     <div class="alert alert-info alert-dismissable">
                         {# @deprecated html attribute "data-dismiss" is deprecated use "data-bs-dismiss" instead #}
-                        <button aria-hidden="true" data-bs-dismiss="alert" data-dismiss="alert" class="close" type="button">×</button>
+                        <button aria-hidden="true" data-bs-dismiss="alert" data-dismiss="alert" class="close btn-close" aria-label="{{ 'global.close' | trans }}" type="button"></button>
                         <div>
                             {{ 'There are no manual filter preferences defined for this category. The filters listed below are global settings. To define manual references for this category, modify the filters below.' | trans }}
                         </div>
@@ -23,7 +23,7 @@
                 {% else %}
                     <div class="alert alert-info alert-dismissable">
                         {# @deprecated html attribute "data-dismiss" is deprecated use "data-bs-dismiss" instead #}
-                        <button aria-hidden="true" data-bs-dismiss="alert" data-dismiss="alert" class="close" type="button">×</button>
+                        <button aria-hidden="true" data-bs-dismiss="alert" data-dismiss="alert" class="close btn-close" aria-label="{{ 'global.close' | trans }}" type="button"></button>
                         {% apply trans|raw %}
                             <div>
                                 Filter preferences for this category have been manually defined. You can discard the custom settings by resetting to global settings.
@@ -34,7 +34,7 @@
                 {% if nonSearchAttributes is not empty %}
                     <div class="alert alert-info alert-dismissable">
                         {# @deprecated html attribute "data-dismiss" is deprecated use "data-bs-dismiss" instead #}
-                        <button aria-hidden="true" data-bs-dismiss="alert" data-dismiss="alert" class="close" type="button">×</button>
+                        <button aria-hidden="true" data-bs-dismiss="alert" data-dismiss="alert" class="close btn-close" aria-label="{{ 'global.close' | trans }}" type="button"></button>
                         {% apply trans|raw %}
                             <div>
                                 Please note, the category filters in <span class="non-filter-attribute">italics</span> will not be displayed in the shop. To display the filters please add them to global filter settings.
