@@ -24,9 +24,6 @@ class ProductCategoryFilterGuiToProductCategoryQueryContainerBridge implements P
         $this->productCategoryQueryContainer = $productCategoryQueryContainer;
     }
 
-    /**
-     * @return \Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery
-     */
     public function queryProductCategoryMappings(): SpyProductCategoryQuery
     {
         return $this->productCategoryQueryContainer->queryProductCategoryMappings();

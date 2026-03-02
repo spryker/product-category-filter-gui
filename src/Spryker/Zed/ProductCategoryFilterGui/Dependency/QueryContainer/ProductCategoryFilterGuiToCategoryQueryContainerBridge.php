@@ -24,9 +24,6 @@ class ProductCategoryFilterGuiToCategoryQueryContainerBridge implements ProductC
         $this->categoryQueryContainer = $categoryQueryContainer;
     }
 
-    /**
-     * @return \Orm\Zed\Category\Persistence\SpyCategoryAttributeQuery
-     */
     public function queryRootNodes(): SpyCategoryAttributeQuery
     {
         return $this->categoryQueryContainer->queryRootNodes();

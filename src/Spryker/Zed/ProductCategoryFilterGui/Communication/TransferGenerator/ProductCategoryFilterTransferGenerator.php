@@ -18,9 +18,6 @@ class ProductCategoryFilterTransferGenerator implements ProductCategoryFilterTra
      */
     protected $utilEncodingService;
 
-    /**
-     * @param \Spryker\Zed\ProductCategoryFilterGui\Dependency\Service\ProductCategoryFilterGuiToUtilEncodingServiceInterface $utilEncodingService
-     */
     public function __construct(ProductCategoryFilterGuiToUtilEncodingServiceInterface $utilEncodingService)
     {
         $this->utilEncodingService = $utilEncodingService;

@@ -60,11 +60,6 @@ class CategoryTreeController extends AbstractController
             ->getCurrentLocale();
     }
 
-    /**
-     * @param int $idCategory
-     *
-     * @return \Generated\Shared\Transfer\NodeCollectionTransfer|null
-     */
     protected function findCategoryNodeTree(int $idCategory): ?NodeCollectionTransfer
     {
         $categoryCriteriaTransfer = (new CategoryCriteriaTransfer())
@@ -81,11 +76,6 @@ class CategoryTreeController extends AbstractController
         return $this->getCategoryChildNodeCollection($categoryTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CategoryTransfer $categoryTransfer
-     *
-     * @return \Generated\Shared\Transfer\NodeCollectionTransfer
-     */
     protected function getCategoryChildNodeCollection(CategoryTransfer $categoryTransfer): NodeCollectionTransfer
     {
         $categoryNodeCollectionTransfer = $categoryTransfer->getNodeCollection();

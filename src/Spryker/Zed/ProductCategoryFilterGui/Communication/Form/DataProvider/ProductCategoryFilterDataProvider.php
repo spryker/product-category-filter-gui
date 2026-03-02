@@ -17,9 +17,6 @@ class ProductCategoryFilterDataProvider
      */
     protected $productCategoryFilterFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductCategoryFilterGui\Dependency\Facade\ProductCategoryFilterGuiToProductCategoryFilterFacadeInterface $navigationFacade
-     */
     public function __construct(ProductCategoryFilterGuiToProductCategoryFilterFacadeInterface $navigationFacade)
     {
         $this->productCategoryFilterFacade = $navigationFacade;

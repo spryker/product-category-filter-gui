@@ -25,11 +25,6 @@ class ProductCategoryFilterGuiToCategoryFacadeBridge implements ProductCategoryF
         $this->categoryFacade = $categoryFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CategoryCriteriaTransfer $categoryCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\CategoryTransfer|null
-     */
     public function findCategory(CategoryCriteriaTransfer $categoryCriteriaTransfer): ?CategoryTransfer
     {
         return $this->categoryFacade->findCategory($categoryCriteriaTransfer);

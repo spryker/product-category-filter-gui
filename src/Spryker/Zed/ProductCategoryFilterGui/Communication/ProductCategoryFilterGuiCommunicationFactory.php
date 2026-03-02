@@ -130,9 +130,6 @@ class ProductCategoryFilterGuiCommunicationFactory extends AbstractCommunication
         return new ProductCategoryFilterTransferGenerator($this->getUtilEncodingService());
     }
 
-    /**
-     * @return \Spryker\Zed\ProductCategoryFilterGui\Communication\Validator\ProductCategoryFilterValidatorInterface
-     */
     public function createProductCategoryFilterValidator(): ProductCategoryFilterValidatorInterface
     {
         return new ProductCategoryFilterValidator(
@@ -140,9 +137,6 @@ class ProductCategoryFilterGuiCommunicationFactory extends AbstractCommunication
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductCategoryFilterGui\Communication\Saver\ProductCategoryFilterSaverInterface
-     */
     public function createProductCategoryFilterSaver(): ProductCategoryFilterSaverInterface
     {
         return new ProductCategoryFilterSaver(

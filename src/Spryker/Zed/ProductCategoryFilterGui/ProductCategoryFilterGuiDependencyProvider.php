@@ -240,11 +240,6 @@ class ProductCategoryFilterGuiDependencyProvider extends AbstractBundleDependenc
         });
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductCategoryListActionViewDataExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_CATEGORY_LIST_ACTION_VIEW_DATA_EXPANDER, function () {

@@ -11,18 +11,8 @@ use Generated\Shared\Transfer\ProductCategoryFilterTransfer;
 
 interface ProductCategoryFilterGuiToProductCategoryFilterFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductCategoryFilterTransfer $productCategoryFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductCategoryFilterTransfer
-     */
     public function createProductCategoryFilter(ProductCategoryFilterTransfer $productCategoryFilterTransfer): ProductCategoryFilterTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductCategoryFilterTransfer $productCategoryFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductCategoryFilterTransfer
-     */
     public function updateProductCategoryFilter(ProductCategoryFilterTransfer $productCategoryFilterTransfer): ProductCategoryFilterTransfer;
 
     /**
@@ -39,8 +29,5 @@ interface ProductCategoryFilterGuiToProductCategoryFilterFacadeInterface
      */
     public function findProductCategoryFilterByCategoryId($categoryId): ProductCategoryFilterTransfer;
 
-    /**
-     * @return array
-     */
     public function getAllProductCategoriesWithFilters(): array;
 }

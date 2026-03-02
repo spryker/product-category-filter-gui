@@ -24,21 +24,11 @@ class ProductCategoryFilterGuiToProductCategoryFilterFacadeBridge implements Pro
         $this->productCategoryFilterFacade = $productCategoryFilterFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductCategoryFilterTransfer $productCategoryFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductCategoryFilterTransfer
-     */
     public function createProductCategoryFilter(ProductCategoryFilterTransfer $productCategoryFilterTransfer): ProductCategoryFilterTransfer
     {
         return $this->productCategoryFilterFacade->createProductCategoryFilter($productCategoryFilterTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductCategoryFilterTransfer $productCategoryFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductCategoryFilterTransfer
-     */
     public function updateProductCategoryFilter(ProductCategoryFilterTransfer $productCategoryFilterTransfer): ProductCategoryFilterTransfer
     {
         return $this->productCategoryFilterFacade->updateProductCategoryFilter($productCategoryFilterTransfer);
@@ -64,9 +54,6 @@ class ProductCategoryFilterGuiToProductCategoryFilterFacadeBridge implements Pro
         return $this->productCategoryFilterFacade->findProductCategoryFilterByCategoryId($categoryId);
     }
 
-    /**
-     * @return array
-     */
     public function getAllProductCategoriesWithFilters(): array
     {
         return $this->productCategoryFilterFacade->getAllProductCategoriesWithFilters();

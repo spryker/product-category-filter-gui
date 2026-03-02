@@ -232,12 +232,6 @@ class ProductCategoryFilterController extends AbstractController
         return $productCategoryFilterTransfer;
     }
 
-    /**
-     * @param \Symfony\Component\Form\FormInterface $productCategoryFilterForm
-     * @param \Generated\Shared\Transfer\CategoryTransfer $categoryTransfer
-     *
-     * @return bool
-     */
     protected function isProductCategoryFilterFormHandable(
         FormInterface $productCategoryFilterForm,
         CategoryTransfer $categoryTransfer

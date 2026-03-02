@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\CategoryTransfer;
 
 interface ProductCategoryFilterGuiToCategoryFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CategoryCriteriaTransfer $categoryCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\CategoryTransfer|null
-     */
     public function findCategory(CategoryCriteriaTransfer $categoryCriteriaTransfer): ?CategoryTransfer;
 }

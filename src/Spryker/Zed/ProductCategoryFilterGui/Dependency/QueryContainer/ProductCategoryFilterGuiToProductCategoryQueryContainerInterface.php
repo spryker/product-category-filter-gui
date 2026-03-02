@@ -11,8 +11,5 @@ use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
 
 interface ProductCategoryFilterGuiToProductCategoryQueryContainerInterface
 {
-    /**
-     * @return \Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery
-     */
     public function queryProductCategoryMappings(): SpyProductCategoryQuery;
 }

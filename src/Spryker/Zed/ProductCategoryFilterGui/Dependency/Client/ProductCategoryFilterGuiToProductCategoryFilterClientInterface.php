@@ -9,11 +9,5 @@ namespace Spryker\Zed\ProductCategoryFilterGui\Dependency\Client;
 
 interface ProductCategoryFilterGuiToProductCategoryFilterClientInterface
 {
-    /**
-     * @param array $facets
-     * @param array $productCategoryFilters
-     *
-     * @return array
-     */
     public function updateFacetsByCategory(array $facets, array $productCategoryFilters): array;
 }

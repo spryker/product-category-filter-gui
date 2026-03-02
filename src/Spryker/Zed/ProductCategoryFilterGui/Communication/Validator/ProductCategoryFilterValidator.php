@@ -17,9 +17,6 @@ class ProductCategoryFilterValidator implements ProductCategoryFilterValidatorIn
      */
     protected ProductCategoryFilterGuiToProductSearchFacadeInterface $productSearchFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductCategoryFilterGui\Dependency\Facade\ProductCategoryFilterGuiToProductSearchFacadeInterface $productSearchFacade
-     */
     public function __construct(ProductCategoryFilterGuiToProductSearchFacadeInterface $productSearchFacade)
     {
         $this->productSearchFacade = $productSearchFacade;

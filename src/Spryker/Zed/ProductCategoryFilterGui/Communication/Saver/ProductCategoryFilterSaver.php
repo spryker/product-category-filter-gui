@@ -17,19 +17,11 @@ class ProductCategoryFilterSaver implements ProductCategoryFilterSaverInterface
      */
     protected ProductCategoryFilterGuiToProductCategoryFilterFacadeInterface $productCategoryFilterFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductCategoryFilterGui\Dependency\Facade\ProductCategoryFilterGuiToProductCategoryFilterFacadeInterface $productCategoryFilterFacade
-     */
     public function __construct(ProductCategoryFilterGuiToProductCategoryFilterFacadeInterface $productCategoryFilterFacade)
     {
         $this->productCategoryFilterFacade = $productCategoryFilterFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductCategoryFilterTransfer $productCategoryFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductCategoryFilterTransfer
-     */
     public function save(ProductCategoryFilterTransfer $productCategoryFilterTransfer): ProductCategoryFilterTransfer
     {
         if (!$productCategoryFilterTransfer->getIdProductCategoryFilter()) {

@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\ProductCategoryFilterTransfer;
 
 interface ProductCategoryFilterSaverInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductCategoryFilterTransfer $productCategoryFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductCategoryFilterTransfer
-     */
     public function save(ProductCategoryFilterTransfer $productCategoryFilterTransfer): ProductCategoryFilterTransfer;
 }

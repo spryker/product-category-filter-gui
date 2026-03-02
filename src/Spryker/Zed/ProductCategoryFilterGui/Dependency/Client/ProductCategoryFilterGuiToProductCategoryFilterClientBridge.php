@@ -22,12 +22,6 @@ class ProductCategoryFilterGuiToProductCategoryFilterClientBridge implements Pro
         $this->productCategoryFilterClient = $productCategoryFilterClient;
     }
 
-    /**
-     * @param array $facets
-     * @param array $productCategoryFilters
-     *
-     * @return array
-     */
     public function updateFacetsByCategory(array $facets, array $productCategoryFilters): array
     {
         return $this->productCategoryFilterClient->updateFacetsByCategory($facets, $productCategoryFilters);

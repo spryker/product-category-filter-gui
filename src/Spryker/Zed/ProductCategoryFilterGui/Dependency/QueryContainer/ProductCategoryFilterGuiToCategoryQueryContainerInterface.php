@@ -11,9 +11,6 @@ use Orm\Zed\Category\Persistence\SpyCategoryAttributeQuery;
 
 interface ProductCategoryFilterGuiToCategoryQueryContainerInterface
 {
-    /**
-     * @return \Orm\Zed\Category\Persistence\SpyCategoryAttributeQuery
-     */
     public function queryRootNodes(): SpyCategoryAttributeQuery;
 
     /**
