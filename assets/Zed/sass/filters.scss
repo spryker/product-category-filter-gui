@@ -1,18 +1,18 @@
 .filter-item {
     font-weight: bold;
-    background: #fbfbfb;
     position: relative;
 
     .dd-handle {
-        padding-left: 45px;
+        padding-left: 55px;
     }
 }
 
 .re-add-product-category-filter,
 .remove-product-category-filter {
     position: absolute;
-    margin-top: 5px;
-    margin-left: 5px;
+    left: 10px;
+    top: 13px;
+    z-index: 2;
 }
 
 .no-padding-left {
