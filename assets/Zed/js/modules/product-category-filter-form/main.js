@@ -47,7 +47,12 @@ $(document).ready(function () {
         var event = new CustomEvent('resetCategory', { detail: { idCategory: idCategory } });
 
         window.parent.document.dispatchEvent(event);
-        window.location.href = e.target.href;
+
+        const redirectUrl = new URL(e.target.href, window.location.origin);
+
+        if (redirectUrl.origin === window.location.origin) {
+            window.location.href = redirectUrl.href;
+        }
     });
 
     $('.spryker-form-autocomplete').each(function (key, value) {
