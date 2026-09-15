@@ -14,10 +14,12 @@ use Spryker\Zed\ProductCategoryFilterGui\Dependency\QueryContainer\ProductCatego
 
 class CategoryRootNodeTable extends AbstractTable
 {
+    public const string TABLE_IDENTIFIER = 'root-node-table';
+
     /**
-     * @var string
+     * The table is initialized centrally by the Table library, which finds it through `gui-table-data`.
      */
-    public const TABLE_IDENTIFIER = 'root-node-table';
+    public const string TABLE_CLASS = 'gui-table-data-category gui-table-data';
 
     /**
      * @var \Spryker\Zed\ProductCategoryFilterGui\Dependency\QueryContainer\ProductCategoryFilterGuiToCategoryQueryContainerInterface
@@ -47,7 +49,14 @@ class CategoryRootNodeTable extends AbstractTable
      */
     protected function configure(TableConfiguration $config)
     {
-        $this->tableClass = 'gui-table-data-category';
+        $this->tableClass = static::TABLE_CLASS;
+
+        // Selecting a row reads the category ID from its first cell, which collapsing columns into child
+        // rows would move. The search box stays hidden because the table lists the root nodes only.
+        $config->setTableAttributes([
+            'data-searching' => 'false',
+            'data-responsive' => 'false',
+        ]);
 
         $config->setHeader([
             SpyCategoryAttributeTableMap::COL_FK_CATEGORY => 'Category Id',

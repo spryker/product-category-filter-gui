@@ -5,43 +5,59 @@
 
 'use strict';
 
+var tableAccess = require('ZedGuiModules/libs/table/table-access');
 var categoryTree = require('./category-tree');
-var categoryTable;
+var categoryHandle;
 
 /**
  * @param {string} selector
- */
-function initialize(selector) {
-    categoryTable = $(selector).DataTable();
-
-    categoryTree.initialize();
-
-    $(selector).find('tbody').on('click', 'tr', tableRowSelect);
-    categoryTableSearchDelay($(selector), categoryTable);
-    categoryTable.on('draw', selectFirstRow);
-    categoryTable.on('select', loadCategoryTree);
-    categoryTable.on('deselect', resetCategoryTree);
-}
-
-/**
- * @param {Event} e
  *
  * @return {void}
  */
-function tableRowSelect(e) {
-    if (!$(e.target).is('td')) {
+function initialize(selector) {
+    var categoryTable = document.querySelector(selector);
+
+    if (!categoryTable) {
         return;
     }
 
-    categoryTable.rows().deselect();
-    categoryTable.row($(this).index()).select();
+    categoryTree.initialize();
+
+    $(categoryTable).on('click', 'tbody > tr:not(.child)', tableRowSelect);
+
+    tableAccess.requestTable(categoryTable, function (handle) {
+        categoryHandle = handle;
+
+        handle.on('draw', selectFirstRow);
+
+        handle.raw().on('select', loadCategoryTree).on('deselect', resetCategoryTree);
+    });
 }
 
 /**
  * @return {void}
  */
-function selectFirstRow(e, settings) {
-    getDataTableApi(settings).row(0).select();
+function tableRowSelect() {
+    selectRow(this);
+}
+
+/**
+ * @return {void}
+ */
+function selectFirstRow() {
+    selectRow(0);
+}
+
+/**
+ * @param {Object|number} row - Row node or row index.
+ *
+ * @return {void}
+ */
+function selectRow(row) {
+    var api = categoryHandle.raw();
+
+    api.rows().deselect();
+    api.row(row).select();
 }
 
 /**
@@ -55,40 +71,8 @@ function loadCategoryTree(e, api, type, indexes) {
 /**
  * @return {void}
  */
-function resetCategoryTree(e, api) {
+function resetCategoryTree() {
     categoryTree.reset();
-}
-
-/**
- * @param {object} settings
- *
- * @returns {DataTable.Api}
- */
-function getDataTableApi(settings) {
-    return new $.fn.dataTable.Api(settings);
-}
-
-/**
- * @param {object} selector
- * @param {object} categoryTable
- *
- * @return {void}
- */
-function categoryTableSearchDelay(selector, categoryTable) {
-    var categorySearchInput = selector.parents('.dataTables_wrapper').find('input[type="search"]');
-    var categoryTimeOutId = 0;
-
-    if (categorySearchInput.length) {
-        categorySearchInput.unbind().bind('input', function (e) {
-            var self = this;
-
-            clearTimeout(categoryTimeOutId);
-            categoryTimeOutId = setTimeout(function () {
-                categoryTable.search(self.value).draw();
-            }, 1000);
-            return;
-        });
-    }
 }
 
 /**
